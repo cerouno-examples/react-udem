@@ -6,14 +6,67 @@
   <title>Repositories List</title>
 </head>
 <body>
-  <h1 id='repoList'></h1>
+  <div id="app"></div>
+  <div id="helloName"></div>
+  <button id='btn'>Click Me</button>
+  <ul id='repoList'></ul>
+  <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js'></script>
+  <script type="text/javascript" src='main.js'></script>
   <script type="module">
-    import { color, name, appendLi } from './lib.mjs'
-    console.log(color)
-    console.log(name)
-    console.log(appendLi)
 
-    getRepositories()
+    const name = 'Chuy'
+    let message = `<h1>Hey ${name}
+    is a multiline string</h1>`
+    const sum = (x, y) => x + y
+    
+
+    const defaultMessageTo = ({name, welcomeMessage}) => (
+      `<p>${welcomeMessage} ${name}</p>`)
+
+    
+    const createMessageObject = () => ({name,welcomeMessage: 'Good night'})
+    const messsageObject = createMessageObject()
+    console.log(messsageObject)
+
+    document.getElementById('app').innerHTML = (Object.is(NaN, NaN))
+
+    function getValue (condition) {
+      // var value el interprete de js 
+      if (condition) {
+        let value = "blue"
+        console.log(value)
+      } else {
+        console.log(value) // undefined
+        console.log(pancho) // ReferenceError: pancho is not defined
+      }
+    }
+    
+    let x='global value';
+    function globalOrLocal() {
+      let x='local value';
+      console.log(x);
+    }
+
+    const maxItems = 30;
+
+
+    class PersonClass {
+      constructor (name) {
+        this.name = name
+      }
+      
+      sayName () {
+        console.log(this.name)
+      }
+
+      static walk () {
+        console.log('I\'m walking')
+      }
+    }
+    PersonClass.walk()
+    const person = new PersonClass('Jesus')
+    person.sayName()
+
   </script>
 </body>
 </html>
